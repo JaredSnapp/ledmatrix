@@ -140,7 +140,9 @@ void RGBmatrixPanel::init(uint8_t rows, uint8_t a, uint8_t b, uint8_t c,
 ) {
 #if defined(ARDUINO_ARCH_SAMD) || defined(ARDUINO_ARCH_ESP32)
   // R1, G1, B1, R2, G2, B2 pins
-  static const uint8_t defaultrgbpins[] = {2, 3, 4, 5, 6, 7};
+  // mopdified for metro ESP32-S2
+  //static const uint8_t defaultrgbpins[] = {2, 3, 4, 5, 6, 7};
+  static const uint8_t defaultrgbpins[] = {7, 8, 9, 10, 11, 12};
   memcpy(rgbpins, pinlist ? pinlist : defaultrgbpins, sizeof rgbpins);
 #if defined(ARDUINO_ARCH_SAMD)
   // All six RGB pins MUST be on the same PORT # as CLK
