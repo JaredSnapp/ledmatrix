@@ -1,0 +1,87 @@
+[
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "/Users/jaredsnapp/Library/Arduino15/packages/esp32/hardware/esp32/2.0.0/cores/esp32"
+  },
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "/Users/jaredsnapp/Library/Arduino15/packages/esp32/hardware/esp32/2.0.0/variants/adafruit_metro_esp32s2"
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Documents/GitHub/ledmatrix/ArduinoOutput/sketch/ledmatrix.ino.cpp",
+    "Include": "Adafruit_GFX.h",
+    "Includepath": "/Users/jaredsnapp/Documents/Arduino/libraries/Adafruit_GFX_Library"
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Documents/GitHub/ledmatrix/ArduinoOutput/sketch/ledmatrix.ino.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Documents/GitHub/ledmatrix/ArduinoOutput/sketch/RGBmatrixPanel.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Documents/Arduino/libraries/Adafruit_GFX_Library/Adafruit_GFX.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Documents/Arduino/libraries/Adafruit_GFX_Library/Adafruit_GrayOLED.cpp",
+    "Include": "Adafruit_I2CDevice.h",
+    "Includepath": "/Users/jaredsnapp/Documents/Arduino/libraries/Adafruit_BusIO"
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Documents/Arduino/libraries/Adafruit_GFX_Library/Adafruit_GrayOLED.cpp",
+    "Include": "Wire.h",
+    "Includepath": "/Users/jaredsnapp/Library/Arduino15/packages/esp32/hardware/esp32/2.0.0/libraries/Wire/src"
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Documents/Arduino/libraries/Adafruit_GFX_Library/Adafruit_GrayOLED.cpp",
+    "Include": "SPI.h",
+    "Includepath": "/Users/jaredsnapp/Library/Arduino15/packages/esp32/hardware/esp32/2.0.0/libraries/SPI/src"
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Documents/Arduino/libraries/Adafruit_GFX_Library/Adafruit_GrayOLED.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Documents/Arduino/libraries/Adafruit_GFX_Library/Adafruit_SPITFT.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Documents/Arduino/libraries/Adafruit_GFX_Library/glcdfont.c",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Documents/Arduino/libraries/Adafruit_BusIO/Adafruit_BusIO_Register.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Documents/Arduino/libraries/Adafruit_BusIO/Adafruit_I2CDevice.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Documents/Arduino/libraries/Adafruit_BusIO/Adafruit_SPIDevice.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Library/Arduino15/packages/esp32/hardware/esp32/2.0.0/libraries/Wire/src/Wire.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Library/Arduino15/packages/esp32/hardware/esp32/2.0.0/libraries/SPI/src/SPI.cpp",
+    "Include": "",
+    "Includepath": null
+  }
+]
