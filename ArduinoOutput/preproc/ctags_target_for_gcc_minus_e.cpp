@@ -1,121 +1,11 @@
 # 1 "/Users/jaredsnapp/Documents/GitHub/ledmatrix/ledmatrix.ino"
-// scrolltext demo for Adafruit RGBmatrixPanel library.
-// Demonstrates double-buffered animation on our 16x32 RGB LED matrix:
-// http://www.adafruit.com/products/420
-// DOUBLE-BUFFERED ANIMATION DOES NOT WORK WITH ARDUINO UNO or METRO 328.
-
-// Written by Limor Fried/Ladyada & Phil Burgess/PaintYourDragon
-// for Adafruit Industries.
-// BSD license, all text above must be included in any redistribution.
-
-# 11 "/Users/jaredsnapp/Documents/GitHub/ledmatrix/ledmatrix.ino" 2
-
-//#include "RGB-matrix-Panel-master/RGBmatrixPanel.h"
-
-// Most of the signal pins are configurable, but the CLK pin has some
-// special constraints.  On 8-bit AVR boards it must be on PORTB...
-// Pin 11 works on the Arduino Mega.  On 32-bit SAMD boards it must be
-// on the same PORT as the RGB data pins (D2-D7)...
-// Pin 8 works on the Adafruit Metro M0 or Arduino Zero,
-// Pin A4 works on the Adafruit Metro M4 (if using the Adafruit RGB
-// Matrix Shield, cut trace between CLK pads and run a wire to A4).
-
-//#define CLK  8   // USE THIS ON ADAFRUIT METRO M0, etc.
-//#define CLK A4 // USE THIS ON METRO M4 (not M0)
-//#define CLK 11 // USE THIS ON ARDUINO MEGA
-//#define OE   9
-//#define LAT 10
-//#define A   A0
-//#define B   A1
-//#define C   A2
-
-// Metro ESP32-S2
-# 43 "/Users/jaredsnapp/Documents/GitHub/ledmatrix/ledmatrix.ino"
-/*
-
-// Last parameter = 'true' enables double-buffering, for flicker-free,
-// buttery smooth animation.  Note that NOTHING WILL SHOW ON THE DISPLAY
-// until the first call to swapBuffers().  This is normal.
-RGBmatrixPanel matrix(A, B, C, CLK, LAT, OE, true);
-
-// Similar to F(), but for PROGMEM string pointers rather than literals
-#define F2(progmem_ptr) (const __FlashStringHelper *)progmem_ptr
-
-const char str[] PROGMEM = "Adafruit 16x32 RGB LED Matrix";
-int16_t    textX         = matrix.width(),
-           textMin       = (int16_t)sizeof(str) * -12,
-           hue           = 0;
-int8_t ball[3][4] = {
-  {  3,  0,  1,  1 }, // Initial X,Y pos & velocity for 3 bouncy balls
-  { 17, 15,  1, -1 },
-  { 27,  4, -1,  1 }
-};
-static const uint16_t PROGMEM ballcolor[3] = {
-  0x0080, // Green=1
-  0x0002, // Blue=1
-  0x1000  // Red=1
-};
-
-void setup() {
-  matrix.begin();
-  matrix.setTextWrap(false); // Allow text to run off right edge
-  matrix.setTextSize(2);
-}
-
-void loop() {
-  byte i;
-
-  // Clear background
-  matrix.fillScreen(0);
-
-  // Bounce three balls around
-  
-  for(i=0; i<3; i++) {
-    // Draw 'ball'
-    matrix.fillCircle(ball[i][0], ball[i][1], 5, pgm_read_word(&ballcolor[i]));
-    // Update X, Y position
-    ball[i][0] += ball[i][2];
-    ball[i][1] += ball[i][3];
-    // Bounce off edges
-    if((ball[i][0] == 0) || (ball[i][0] == (matrix.width() - 1)))
-      ball[i][2] *= -1;
-    if((ball[i][1] == 0) || (ball[i][1] == (matrix.height() - 1)))
-      ball[i][3] *= -1;
-  }
-  
-
-  // Draw big scrolly text on top
-  matrix.setTextColor(matrix.ColorHSV(hue, 255, 255, true));
-  matrix.setCursor(textX, 1);
-  matrix.print(F2(str));
-
-  // Move text left (w/wrap), increase hue
-  if((--textX) < textMin) textX = matrix.width();
-  hue += 7;
-  if(hue >= 1536) hue -= 1536;
-  
-
-#if !defined(__AVR__)
-  // On non-AVR boards, delay slightly so screen updates aren't too quick.
-  delay(20);
-#endif
-
-  // Update display
-  matrix.swapBuffers(false);
-}
-
-*/
-
-
-
-/*
 // testshapes demo for RGBmatrixPanel library.
 // Demonstrates the drawing abilities of the RGBmatrixPanel library.
 // For 32x64 RGB LED matrix.
 
 // WILL NOT FIT on ARDUINO UNO -- requires a Mega, M0 or M4 board
 
-#include <RGBmatrixPanel.h>
+# 8 "/Users/jaredsnapp/Documents/GitHub/ledmatrix/ledmatrix.ino" 2
 
 // Most of the signal pins are configurable, but the CLK pin has some
 // special constraints.  On 8-bit AVR boards it must be on PORTB...
@@ -125,18 +15,8 @@ void loop() {
 // Pin A4 works on the Adafruit Metro M4 (if using the Adafruit RGB
 // Matrix Shield, cut trace between CLK pads and run a wire to A4).
 
-#define CLK  8   // USE THIS ON ADAFRUIT METRO M0, etc.
-//#define CLK A4 // USE THIS ON METRO M4 (not M0)
-//#define CLK 11 // USE THIS ON ARDUINO MEGA
-#define OE   9
-#define LAT 10
-#define A   A0
-#define B   A1
-#define C   A2
-#define D   A3
-
-*/
-
+// Metro ESP32-S2
+# 26 "/Users/jaredsnapp/Documents/GitHub/ledmatrix/ledmatrix.ino"
 RGBmatrixPanel matrix(17, 18, 1, 2, 13, 15, 14, false, 64);
 
 void setup() {
@@ -144,29 +24,29 @@ void setup() {
   matrix.begin();
 
   // draw a pixel in solid white
-  matrix.drawPixel(0, 0, matrix.Color333(7, 7, 7));
+  matrix.drawPixel(0, 0, matrix.Color333(4, 4, 4));
   delay(500);
 
   // fix the screen with green
-  matrix.fillRect(0, 0, matrix.width(), matrix.height(), matrix.Color333(0, 7, 0));
+  matrix.fillRect(0, 0, matrix.width(), matrix.height(), matrix.Color333(0, 5, 0));
   delay(500);
 
   // draw a box in yellow
-  matrix.drawRect(0, 0, matrix.width(), matrix.height(), matrix.Color333(7, 7, 0));
-  delay(500);
+  //matrix.drawRect(0, 0, matrix.width(), matrix.height(), matrix.Color333(7, 7, 0));
+  //delay(500);
 
   // draw an 'X' in red
-  matrix.drawLine(0, 0, matrix.width()-1, matrix.height()-1, matrix.Color333(7, 0, 0));
-  matrix.drawLine(matrix.width()-1, 0, 0, matrix.height()-1, matrix.Color333(7, 0, 0));
-  delay(500);
+  //matrix.drawLine(0, 0, matrix.width()-1, matrix.height()-1, matrix.Color333(7, 0, 0));
+  //matrix.drawLine(matrix.width()-1, 0, 0, matrix.height()-1, matrix.Color333(7, 0, 0));
+  //delay(500);
 
   // draw a blue circle
-  matrix.drawCircle(10, 10, 10, matrix.Color333(0, 0, 7));
-  delay(500);
+  //matrix.drawCircle(10, 10, 10, matrix.Color333(0, 0, 7));
+  //delay(500);
 
   // fill a violet circle
-  matrix.fillCircle(40, 21, 10, matrix.Color333(7, 0, 7));
-  delay(500);
+  //matrix.fillCircle(40, 21, 10, matrix.Color333(7, 0, 7));
+  //delay(500);
 
   // fill the screen with 'black'
   matrix.fillScreen(matrix.Color333(0, 0, 0));
@@ -175,14 +55,15 @@ void setup() {
   matrix.setTextSize(1); // size 1 == 8 pixels high
   matrix.setTextWrap(false); // Don't wrap at end of line - will do ourselves
 
-  matrix.setCursor(8, 0); // start at top left, with 8 pixel of spacing
+  /*
+  matrix.setCursor(8, 0);    // start at top left, with 8 pixel of spacing
   uint8_t w = 0;
   char *str = "AdafruitIndustries";
   for (w=0; w<8; w++) {
     matrix.setTextColor(Wheel(w));
     matrix.print(str[w]);
   }
-  matrix.setCursor(2, 8); // next line
+  matrix.setCursor(2, 8);    // next line
   for (w=8; w<18; w++) {
     matrix.setTextColor(Wheel(w));
     matrix.print(str[w]);
@@ -190,9 +71,30 @@ void setup() {
   matrix.println();
   //matrix.setTextColor(matrix.Color333(4,4,4));
   //matrix.println("Industries");
-  matrix.setTextColor(matrix.Color333(7,7,7));
-  matrix.println("LED MATRIX!");
 
+  */
+  matrix.setCursor(0,0);
+  matrix.setTextColor(matrix.Color333(0,3,0));
+  matrix.println("Temp 69");
+
+
+  //matrix.setCursor(32, 0);
+  matrix.setTextColor(matrix.Color333(0,2,2));
+  matrix.println("Hum 80%");
+  matrix.setTextColor(matrix.Color333(2,2,2));
+  matrix.println("lunar 80%");
+  matrix.setTextColor(matrix.Color333(2,2,0));
+  matrix.println("sun 100%");
+  //matrix.setCursor(8, 0);
+  //matrix.println("Hello2");
+
+  //matrix.setCursor(4, 8);
+  //matrix.setTextColor(matrix.Color333(4,4,4));
+  //matrix.println("Hello2");
+  //matrix.println("Hello3");
+  //matrix.println("Hello4");
+
+  /*
   // print each letter with a rainbow color
   matrix.setTextColor(matrix.Color333(7,0,0));
   matrix.print('3');
@@ -215,6 +117,7 @@ void setup() {
   matrix.print('B');
   matrix.setTextColor(matrix.Color333(7,0,4));
   matrix.print('*');
+  */
 
   // whew!
 }
@@ -237,7 +140,7 @@ uint16_t Wheel(byte WheelPos) {
    return matrix.Color333(WheelPos, 0, 7 - WheelPos);
   }
 }
-# 275 "/Users/jaredsnapp/Documents/GitHub/ledmatrix/ledmatrix.ino"
+# 175 "/Users/jaredsnapp/Documents/GitHub/ledmatrix/ledmatrix.ino"
 /*
  WiFi Web Server LED Blink
 
