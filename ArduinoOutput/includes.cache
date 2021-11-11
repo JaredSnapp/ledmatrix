@@ -16,11 +16,36 @@
   },
   {
     "Sourcefile": "/Users/jaredsnapp/Documents/GitHub/ledmatrix/ArduinoOutput/sketch/ledmatrix.ino.cpp",
+    "Include": "WiFi.h",
+    "Includepath": "/Users/jaredsnapp/Library/Arduino15/packages/esp32/hardware/esp32/2.0.0/libraries/WiFi/src"
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Documents/GitHub/ledmatrix/ArduinoOutput/sketch/ledmatrix.ino.cpp",
     "Include": "",
     "Includepath": null
   },
   {
     "Sourcefile": "/Users/jaredsnapp/Documents/GitHub/ledmatrix/ArduinoOutput/sketch/RGBmatrixPanel.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Documents/GitHub/ledmatrix/ArduinoOutput/sketch/display.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Documents/GitHub/ledmatrix/ArduinoOutput/sketch/weather.cpp",
+    "Include": "HTTPClient.h",
+    "Includepath": "/Users/jaredsnapp/Library/Arduino15/packages/esp32/hardware/esp32/2.0.0/libraries/HTTPClient/src"
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Documents/GitHub/ledmatrix/ArduinoOutput/sketch/weather.cpp",
+    "Include": "WiFiClientSecure.h",
+    "Includepath": "/Users/jaredsnapp/Library/Arduino15/packages/esp32/hardware/esp32/2.0.0/libraries/WiFiClientSecure/src"
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Documents/GitHub/ledmatrix/ArduinoOutput/sketch/weather.cpp",
     "Include": "",
     "Includepath": null
   },
@@ -56,6 +81,71 @@
   },
   {
     "Sourcefile": "/Users/jaredsnapp/Documents/Arduino/libraries/Adafruit_GFX_Library/glcdfont.c",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Library/Arduino15/packages/esp32/hardware/esp32/2.0.0/libraries/WiFi/src/ETH.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Library/Arduino15/packages/esp32/hardware/esp32/2.0.0/libraries/WiFi/src/WiFi.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Library/Arduino15/packages/esp32/hardware/esp32/2.0.0/libraries/WiFi/src/WiFiAP.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Library/Arduino15/packages/esp32/hardware/esp32/2.0.0/libraries/WiFi/src/WiFiClient.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Library/Arduino15/packages/esp32/hardware/esp32/2.0.0/libraries/WiFi/src/WiFiGeneric.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Library/Arduino15/packages/esp32/hardware/esp32/2.0.0/libraries/WiFi/src/WiFiMulti.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Library/Arduino15/packages/esp32/hardware/esp32/2.0.0/libraries/WiFi/src/WiFiSTA.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Library/Arduino15/packages/esp32/hardware/esp32/2.0.0/libraries/WiFi/src/WiFiScan.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Library/Arduino15/packages/esp32/hardware/esp32/2.0.0/libraries/WiFi/src/WiFiServer.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Library/Arduino15/packages/esp32/hardware/esp32/2.0.0/libraries/WiFi/src/WiFiUdp.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Library/Arduino15/packages/esp32/hardware/esp32/2.0.0/libraries/HTTPClient/src/HTTPClient.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Library/Arduino15/packages/esp32/hardware/esp32/2.0.0/libraries/WiFiClientSecure/src/WiFiClientSecure.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/Users/jaredsnapp/Library/Arduino15/packages/esp32/hardware/esp32/2.0.0/libraries/WiFiClientSecure/src/ssl_client.cpp",
     "Include": "",
     "Includepath": null
   },
