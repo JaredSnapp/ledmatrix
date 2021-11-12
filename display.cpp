@@ -22,7 +22,7 @@ void Display::init() {
 };
 
   
-void Display::update(String temp, String hum, String status) {
+void Display::update(String temp, String hum, String status, String sunrise, String sunset) {
   // fill the screen with 'black'
   this->matrix.fillScreen(this->matrix.Color333(0, 0, 0));
 
@@ -42,7 +42,8 @@ void Display::update(String temp, String hum, String status) {
   this->matrix.setTextColor(this->matrix.Color333(2,2,2));
   this->matrix.println(status);
   this->matrix.setTextColor(this->matrix.Color333(2,2,0));
-  this->matrix.println("7:27  5:51");
+  this->matrix.print(sunrise+"  ");
+  this->matrix.print(sunset);
   
 }
   

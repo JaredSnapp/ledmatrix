@@ -40,7 +40,7 @@ void loop() {
 
   // Do nothing -- image doesn't change
   weather.update();
-  display.update(weather.temp, weather.humidity, weather.main);
+  display.update(weather.temp, weather.humidity, weather.main, weather.sunrise, weather.sunset);
   delay(30000);
 }
 
