@@ -10,6 +10,8 @@ class Weather {
     String temp;
     String humidity;
     String main;
+    String sunset;
+    String sunrise;
   private:
     String extractTemp(String);
     String extractHumidity(String);

@@ -47,11 +47,13 @@ void Weather::update() {
         this->temp = this->extractTemp(payload);
         this->humidity = this->extractHumidity(payload);
         this->main = this->extractMain(payload);
-        String sunrise = this->extractSunrise(payload);
-        String sunset = this->extractSunset(payload);
+        this->sunrise = this->extractSunrise(payload);
+        this->sunset = this->extractSunset(payload);
 
-        Serial.println("temp: "+ this->temp +", hum: " +this->humidity);
-        Serial.println("sunrise: "+ sunrise +", sunset: " +sunset);
+        //Serial.println("temp: "+ this->temp +", hum: " +this->humidity);
+        //Serial.println("sunrise: "+sunrise);
+        //Serial.println("sunset: "+sunset);
+
 
 
       }
@@ -92,9 +94,9 @@ String Weather::extractMain(String json) {
   int index = json.indexOf("\"main\":\"");
   String temp1 = json.substring(index, index+30);
 
-  int start = temp1.indexOf(":");
-  int end = temp1.indexOf(",");
-  String main = temp1.substring(start+1, end);
+  int start = temp1.indexOf(":\"");
+  int end = temp1.indexOf("\",");
+  String main = temp1.substring(start+2, end);
 
   return main;
 }
@@ -109,8 +111,14 @@ String Weather::extractSunrise(String json) {
   int end = temp1.indexOf(",");
   String sunrise = temp1.substring(start+1, end);
 
-  //time_t epch = sunrise.toInt;
-  //sunrise = String(asctime(gmtime(epch)));
+  time_t epch = long(sunrise.toInt());
+  sunrise = String(asctime(gmtime(&epch)));
+  start = sunrise.indexOf(":")-2;
+  sunrise = sunrise.substring(start, start+5);
+
+  // convert to est time
+  int hour = sunrise.substring(0,2).toInt()-5;
+  sunrise = String(hour)+sunrise.substring(2);
 
   return sunrise;
 }
@@ -123,9 +131,14 @@ String Weather::extractSunset(String json) {
   int end = temp1.indexOf("}");
   String sunset = temp1.substring(start+1, end);
 
-  // Todo need to convert data types
-  //time_t epch = sunset.toInt;
-  //sunset = String(asctime(gmtime(epch)));
+  time_t epch = long(sunset.toInt());
+  sunset = String(asctime(gmtime(&epch)));
+  start = sunset.indexOf(":")-2;
+  sunset = sunset.substring(start, start+5);
+
+  // convert to est time
+  int hour = sunset.substring(0,2).toInt()-17;
+  sunset = String(hour)+sunset.substring(2);
 
   return sunset;
 }
