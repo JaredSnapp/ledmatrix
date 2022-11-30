@@ -1,0 +1,9 @@
+{
+    "configuration": "CDCOnBoot=cdc,MSCOnBoot=default,DFUOnBoot=default,PSRAM=enabled,PartitionScheme=default,CPUFreq=240,FlashMode=qio,FlashFreq=80,FlashSize=4M,UploadSpeed=921600,DebugLevel=none",
+    "board": "esp32:esp32:adafruit_metro_esp32s2",
+    "C_Cpp.intelliSenseEngineFallback": "Disabled",
+    "C_Cpp.intelliSenseEngine": "Tag Parser",
+    "sketch": "ledmatrix.ino",
+    "port": "/dev/cu.usbmodem01",
+    "output": "../ledmatrix/ArduinoOutput"
+}
