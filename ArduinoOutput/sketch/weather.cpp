@@ -29,6 +29,8 @@ void Weather::init() {
 }
 
 void Weather::update() {
+
+    this->getTime();
  
   if ((WiFi.status() == WL_CONNECTED)) { //Check the current connection status
  
@@ -54,8 +56,6 @@ void Weather::update() {
         //Serial.println("sunrise: "+sunrise);
         //Serial.println("sunset: "+sunset);
 
-
-
       }
  
     else {
@@ -65,6 +65,39 @@ void Weather::update() {
     http.end(); //Free the resources
   }
  
+}
+
+void Weather::getTime() {
+    if ((WiFi.status() == WL_CONNECTED)) { //Check the current connection status
+ 
+        HTTPClient http;
+    
+        http.begin("http://worldtimeapi.org/api/timezone/America/New_York"); //Specify the URL
+        int httpCode = http.GET();  //Make the request
+    
+        if (httpCode > 0) { //Check for the returning code
+    
+            String payload = http.getString();
+            Serial.println(httpCode);
+            Serial.println(payload);
+
+            //String temp = this->extractTemp(payload);
+            //this->time = this->extractTemp(payload);
+            // if (this->time > 11 || this->time < 8) {
+                //this->lateNight = true;
+            //}
+            //else {
+                //this->lateNight = false;
+            //}
+
+        }
+    
+        else {
+        Serial.println("Error on HTTP request");
+        }
+    
+        http.end(); //Free the resources
+    }
 }
 
 

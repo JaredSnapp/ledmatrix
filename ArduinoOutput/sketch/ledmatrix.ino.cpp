@@ -40,8 +40,12 @@ void loop() {
 
   // Do nothing -- image doesn't change
   weather.update();
+  // if (!weather.lateNight)
   display.update(weather.temp, weather.humidity, weather.main, weather.sunrise, weather.sunset);
   delay(30000);
+
+  // display time
+
 }
 
 
