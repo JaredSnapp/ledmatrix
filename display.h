@@ -18,6 +18,7 @@ class Display{
     Display(): matrix(A, B, C, D, CLK, LAT, OE, false, 64) {};
     void init();
     void update(String, String, String, String, String);
+    void clear();
   private:
     RGBmatrixPanel matrix;
 };

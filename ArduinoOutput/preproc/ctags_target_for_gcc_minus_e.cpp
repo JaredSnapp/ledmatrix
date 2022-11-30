@@ -34,10 +34,14 @@ void loop() {
 
   // Do nothing -- image doesn't change
   weather.update();
+  // if (!weather.lateNight)
   display.update(weather.temp, weather.humidity, weather.main, weather.sunrise, weather.sunset);
   delay(30000);
+
+  // display time
+
 }
-# 61 "/Users/jaredsnapp/Documents/GitHub/ledmatrix/ledmatrix.ino"
+# 65 "/Users/jaredsnapp/Documents/GitHub/ledmatrix/ledmatrix.ino"
 /*
  WiFi Web Server LED Blink
 

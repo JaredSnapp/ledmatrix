@@ -1,0 +1,17 @@
+{
+    "abbreviation": "EST",
+    "client_ip": "158.222.141.51",
+    "datetime": "2022-11-29T18:18:00.934641-05:00",
+    "day_of_week": 2,
+    "day_of_year": 333,
+    "dst": false,
+    "dst_from": null,
+    "dst_offset": 0,
+    "dst_until": null,
+    "raw_offset": -18000,
+    "timezone": "America/New_York",
+    "unixtime": 1669763880,
+    "utc_datetime": "2022-11-29T23:18:00.934641+00:00",
+    "utc_offset": "-05:00",
+    "week_number": 48
+}

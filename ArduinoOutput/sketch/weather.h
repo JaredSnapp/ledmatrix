@@ -12,7 +12,9 @@ class Weather {
     String main;
     String sunset;
     String sunrise;
+    String time;
   private:
+    void getTime();
     String extractTemp(String);
     String extractHumidity(String);
     String extractMain(String);
