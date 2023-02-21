@@ -13,11 +13,13 @@
 Display display;
 Weather weather;
 
-#line 14 "/Users/jaredsnapp/Documents/GitHub/ledmatrix/ledmatrix.ino"
+int secondCount = 0;
+
+#line 16 "/Users/jaredsnapp/Documents/GitHub/ledmatrix/ledmatrix.ino"
 void setup();
-#line 27 "/Users/jaredsnapp/Documents/GitHub/ledmatrix/ledmatrix.ino"
+#line 29 "/Users/jaredsnapp/Documents/GitHub/ledmatrix/ledmatrix.ino"
 void loop();
-#line 14 "/Users/jaredsnapp/Documents/GitHub/ledmatrix/ledmatrix.ino"
+#line 16 "/Users/jaredsnapp/Documents/GitHub/ledmatrix/ledmatrix.ino"
 void setup() {
   Serial.begin(115200);
 
@@ -33,18 +35,25 @@ void setup() {
 
 void loop() {
   delay(1000);
-  //display.update(59);
-  delay(1000);
-  //display.update(69);
-  //Serial.println("Hello?");
+  
+  secondCount++;
 
-  // Do nothing -- image doesn't change
-  weather.update();
-  // if (!weather.lateNight)
-  display.update(weather.temp, weather.humidity, weather.main, weather.sunrise, weather.sunset);
-  delay(30000);
+  weather.getTime();
+  Serial.print("lateNight: ");
+  Serial.println(weather.lateNight);
 
-  // display time
+  if (weather.lateNight) {
+    display.clear();
+  }
+  else {
+    if (secondCount >= 30) {
+      secondCount = 0;
+      weather.update();
+      display.update(weather.temp, weather.humidity, weather.main, weather.sunrise, weather.sunset);
+    }
+  }
+
+  
 
 }
 

@@ -31,6 +31,8 @@ void loop() {
   
   secondCount++;
 
+  weather.checkWifi();
+
   weather.getTime();
   Serial.print("lateNight: ");
   Serial.println(weather.lateNight);

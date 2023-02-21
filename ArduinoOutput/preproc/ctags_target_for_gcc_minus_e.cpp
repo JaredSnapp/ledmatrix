@@ -12,6 +12,8 @@
 Display display;
 Weather weather;
 
+int secondCount = 0;
+
 void setup() {
   Serial.begin(115200);
 
@@ -27,21 +29,28 @@ void setup() {
 
 void loop() {
   delay(1000);
-  //display.update(59);
-  delay(1000);
-  //display.update(69);
-  //Serial.println("Hello?");
 
-  // Do nothing -- image doesn't change
-  weather.update();
-  // if (!weather.lateNight)
-  display.update(weather.temp, weather.humidity, weather.main, weather.sunrise, weather.sunset);
-  delay(30000);
+  secondCount++;
 
-  // display time
+  weather.getTime();
+  Serial.print("lateNight: ");
+  Serial.println(weather.lateNight);
+
+  if (weather.lateNight) {
+    display.clear();
+  }
+  else {
+    if (secondCount >= 30) {
+      secondCount = 0;
+      weather.update();
+      display.update(weather.temp, weather.humidity, weather.main, weather.sunrise, weather.sunset);
+    }
+  }
+
+
 
 }
-# 65 "/Users/jaredsnapp/Documents/GitHub/ledmatrix/ledmatrix.ino"
+# 74 "/Users/jaredsnapp/Documents/GitHub/ledmatrix/ledmatrix.ino"
 /*
  WiFi Web Server LED Blink
 

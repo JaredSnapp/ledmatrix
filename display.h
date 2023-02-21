@@ -2,6 +2,8 @@
 #define DISPLAY_H
 
 #include "RGBmatrixPanel.h"
+#include <vector>
+
 
 // Metro ESP32-S2
 #define CLK  13
@@ -20,6 +22,10 @@ class Display{
     void update(String, String, String, String, String);
     void clear();
   private:
+    int line1color[3];
+    int line2color[3];
+    int line3color[3];
+    int line4color[3];
     RGBmatrixPanel matrix;
 };
 

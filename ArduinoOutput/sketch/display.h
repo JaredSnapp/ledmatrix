@@ -18,7 +18,12 @@ class Display{
     Display(): matrix(A, B, C, D, CLK, LAT, OE, false, 64) {};
     void init();
     void update(String, String, String, String, String);
+    void clear();
   private:
+    int line1color[3];
+    int line2color[3];
+    int line3color[3];
+    int line4color[3];
     RGBmatrixPanel matrix;
 };
 

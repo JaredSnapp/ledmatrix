@@ -5,12 +5,17 @@
 #include "time.h"
 
 
+
+
 Weather::Weather() {
   this->ssid = "Flux";
   this->password =  "ElectromagneticMagic";
  
   this->endpoint = "http://api.openweathermap.org/data/2.5/weather?q=New York City&units=imperial&APPID=";
+  this->metricEndpoint = "https://api.openweathermap.org/data/2.5/weather?q=New York City&units=metric&APPID=";
   this->key = "52b647c576e7ebf2cfa8e8e9df4ec9ca";
+  // Metric units:
+  // "https://api.openweathermap.org/data/2.5/weather?q=New%20York%20City&units=metric&APPID=";
 }
 
 void Weather::init() {
@@ -30,7 +35,7 @@ void Weather::init() {
 
 void Weather::update() {
 
-    this->getTime();
+  //this->getTime();
  
   if ((WiFi.status() == WL_CONNECTED)) { //Check the current connection status
  
@@ -45,7 +50,6 @@ void Weather::update() {
         Serial.println(httpCode);
         Serial.println(payload);
 
-        //String temp = this->extractTemp(payload);
         this->temp = this->extractTemp(payload);
         this->humidity = this->extractHumidity(payload);
         this->main = this->extractMain(payload);
@@ -57,10 +61,25 @@ void Weather::update() {
         //Serial.println("sunset: "+sunset);
 
       }
- 
     else {
       Serial.println("Error on HTTP request");
     }
+    http.end(); //Free the resources
+
+    http.begin(this->metricEndpoint + this->key); //Specify the URL
+    httpCode = http.GET();  //Make the request
+ 
+    if (httpCode > 0) { //Check for the returning code
+ 
+        String payload = http.getString();
+        Serial.println(httpCode);
+        Serial.println(payload);
+        
+        this->metricTemp = this->extractTemp(payload);
+
+        this->temp = this->temp + " " + this->metricTemp;
+
+      }
  
     http.end(); //Free the resources
   }
@@ -77,18 +96,22 @@ void Weather::getTime() {
     
         if (httpCode > 0) { //Check for the returning code
     
+            //Serial.println("time:");
             String payload = http.getString();
-            Serial.println(httpCode);
-            Serial.println(payload);
+            //Serial.println(httpCode);
+            //Serial.println(payload);
 
-            //String temp = this->extractTemp(payload);
-            //this->time = this->extractTemp(payload);
-            // if (this->time > 11 || this->time < 8) {
-                //this->lateNight = true;
-            //}
-            //else {
-                //this->lateNight = false;
-            //}
+            
+            this->time = this->extractTime(payload);
+
+            //Serial.print("time: ");
+            //Serial.println(this->time);
+            if (this->hour > 22 || this->hour < 8) {
+                this->lateNight = true;
+            }
+            else {
+                this->lateNight = false;
+            }
 
         }
     
@@ -100,6 +123,36 @@ void Weather::getTime() {
     }
 }
 
+String Weather::extractTime(String json) {
+  // {"abbreviation":"EST","client_ip":"158.222.141.51","datetime":"2022-11-29T18:18:00.934641-05:00","day_of_week":2,"day_of_year":333,"dst":false,"dst_from":null,"dst_offset":0,"dst_until":null,"raw_offset":-18000,"timezone":"America/New_York","unixtime":1669763880,"utc_datetime":"2022-11-29T23:18:00.934641+00:00","utc_offset":"-05:00","week_number":48}
+  int index = json.indexOf("\"datetime\"");
+  String temp1 = json.substring(index, index+46);
+
+  int start = temp1.indexOf(":");
+  int end = temp1.indexOf(",");
+  String time = temp1.substring(start+1, end);
+  // 2022-11-29T18:29:16.670952-05:00
+  // TIME
+  start = time.indexOf("T");
+  int hourEnd = time.indexOf(":");
+  int minuteEnd = time.indexOf(":", hourEnd+1);
+  this->hour = time.substring(start+1, hourEnd).toInt();
+  //int hour = hourStr.toInt();
+  this->minute = time.substring(hourEnd+1, minuteEnd).toInt();
+  
+  // DATE
+  // YEAR doesn't work
+  end = start;
+  start = time.indexOf("\"");
+  int yearEnd = time.indexOf("-");
+  int monthEnd = time.indexOf("-", yearEnd+1);
+  this->year = time.substring(0, 3).toInt();
+  this->month = time.substring(yearEnd+1, monthEnd).toInt();
+  this->day = time.substring(monthEnd+1, end).toInt();
+  
+  return time;
+}
+
 
 String Weather::extractTemp(String json) {
   int index = json.indexOf("\"temp\"");
@@ -107,7 +160,9 @@ String Weather::extractTemp(String json) {
 
   int start = temp1.indexOf(":");
   int end = temp1.indexOf(",");
-  String temperature = temp1.substring(start+1, end);
+  int temp = temp1.substring(start+1, end).toInt();
+  //String temperature = temp1.substring(start+1, end);
+  String temperature = String(temp);
 
   return temperature;
 }

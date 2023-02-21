@@ -17,6 +17,7 @@ class Weather {
     void init();
     void update();
     void getTime();
+    void checkWifi();
     bool lateNight;
     String temp;
     String metricTemp;
